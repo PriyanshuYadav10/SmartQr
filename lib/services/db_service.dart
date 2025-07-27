@@ -42,7 +42,7 @@ class DBService {
 
   Future<List<QRItem>> getAllQR() async {
     final db = await database;
-    final List<Map<String, dynamic>> maps = await db.query('qr_items', orderBy: 'createdAt DESC');
+    final List<Map<String, dynamic>> maps = await db.query('qr_items ', orderBy: 'createdAt DESC');
     return List.generate(maps.length, (i) => QRItem.fromMap(maps[i]));
   }
 
